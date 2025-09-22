@@ -10,7 +10,7 @@
         <a href="https://perseus-project.pc2.uni-paderborn.de/docs/">Documentation</a><br />
         <a href="https://perseus-project.pc2.uni-paderborn.de/preview/">Live demo</a><br />
         <a href="https://perseus-project.pc2.uni-paderborn.de/contact/">Contact</a><br />
-        <a href="https://github.com/pc2-perseus/plugins">Available plugins</a>
+        <a href="https://github.com/pc2-perseus/perseus-plugins">Available plugins</a>
     </div>
 </div>
 
