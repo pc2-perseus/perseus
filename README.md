@@ -68,10 +68,10 @@ Our prebuilt container images are available on [Docker Hub](https://hub.docker.c
 ## Components
 
 PERSEUS comes with the following components:
-* [PERSEUS core](https://github.com/pc2-perseus/core)
-* [PERSEUS frontend](https://github.com/pc2-perseus/frontend)
-* [PERSEUS worker](https://github.com/pc2-perseus/worker)
-* [Plugins](https://github.com/pc2-perseus/plugins) (states, services & reports)
+* [PERSEUS core](https://github.com/pc2-perseus/perseus-core)
+* [PERSEUS frontend](https://github.com/pc2-perseus/perseus-frontend)
+* [PERSEUS worker](https://github.com/pc2-perseus/perseus-worker)
+* [Plugins](https://github.com/pc2-perseus/perseus-plugins) (states, services & reports)
 
 ## License
 
