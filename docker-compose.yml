@@ -1,0 +1,40 @@
+services:
+  perseus-core:
+    image: docker.io/pc2upb/perseus-core:latest
+    pull_policy: always
+    ports:
+      - "8000:8000"
+    networks:
+      - database_network
+    volumes:
+      - core-rsa:/home/perseus/perseus/security/keys
+      - ./backups:/home/perseus/perseus/backups
+      - ./custom-services:/home/perseus/perseus/services/custom
+      - ./custom-states:/home/perseus/perseus/states/custom
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  perseus-frontend:
+    image: docker.io/pc2upb/perseus-frontend:latest
+    pull_policy: always
+    ports:
+      - "8001:80"
+    environment:
+      - CORE_URL=<HOST>/api # Replace <HOST> with your host, i.e. https://perseus.pc2.uni-paderborn.de
+    restart: unless-stopped
+
+  mongodb:
+    image: docker.io/library/mongo:latest
+    networks:
+      - database_network
+    volumes:
+      - mongodb-data:/mongodb
+    restart: unless-stopped
+
+networks:
+  database_network:
+
+volumes:
+  core-rsa:
+  mongodb-data:
