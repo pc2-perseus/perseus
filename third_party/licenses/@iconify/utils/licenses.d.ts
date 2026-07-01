@@ -1,6 +1,9 @@
 interface LicenseInfo {
+  /** Requires attribution */
   attribution: boolean;
+  /** Allows commercial use */
   commercial: boolean;
+  /** Keep same license */
   sameLicense?: boolean;
 }
 /**

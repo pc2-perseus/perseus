@@ -38,15 +38,15 @@ Compared to the manual `docker-compose` approach, the installer scripts offer a 
 
 We currently offer two variants:
 
-* [`installer-docker.sh`](./installer-docker.sh) – for Docker-based setups (requires root)
-* [`installer-podman.sh`](./installer-podman.sh) – for Podman-based setups (runs containers as a dedicated non-root user)
+* [`installer-docker.sh`](https://github.com/pc2-perseus/perseus/blob/main/installer-docker.sh) – for Docker-based setups (requires root)
+* [`installer-podman.sh`](https://github.com/pc2-perseus/perseus/blob/main/installer-podman.sh) – for Podman-based setups (runs containers as a dedicated non-root user)
 
 > The scripts support most major Linux distributions and will automatically detect your package manager.
 
 To keep your deployment up to date, we also provide:
 
-* [`updater-docker.sh`](./updater-docker.sh)
-* [`updater-podman.sh`](./updater-podman.sh)
+* [`updater-docker.sh`](https://github.com/pc2-perseus/perseus/blob/main/updater-docker.sh)
+* [`updater-podman.sh`](https://github.com/pc2-perseus/perseus/blob/main/updater-podman.sh)
 
 These update scripts stop the running containers, pull the latest images, restart the services, and clean up unused resources.
 
@@ -55,7 +55,7 @@ These update scripts stop the running containers, pull the latest images, restar
 
 ### Run via Docker
 
-We also provide a ready-to-use [`docker-compose.yml`](./docker-compose.yml) to run PERSEUS using **Docker** or **Podman**.
+We also provide a ready-to-use [`docker-compose.yml`](https://github.com/pc2-perseus/perseus/blob/main/docker-compose.yml) to run PERSEUS using **Docker** or **Podman**.
 
 Our prebuilt container images are available on [Docker Hub](https://hub.docker.com/u/pc2upb).
 
@@ -76,4 +76,4 @@ PERSEUS comes with the following components:
 ## License
 
 This project is licensed under the terms of the **MIT License**.
-See the [LICENSE](./LICENSE) file for details.
+See the [LICENSE](https://github.com/pc2-perseus/perseus/blob/main/LICENSE) file for details.
