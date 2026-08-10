@@ -32,39 +32,54 @@ Here’s a first look at the software:
 ## What's new?
 
 <!-- CHANGELOG START -->
-Version **0.15.0** includes the following updates:
+Version **0.16.0** includes the following updates:
 
 
 ### PERSEUS
 
 - _Added_
-  - New endpoint providing an overview of compute projects with usage data, including recent job counts and pending/running jobs
-  - Indicator colors for resource priorities
-  - Group job support across the job manager and frontend
-  - Extended resource data model with parent hierarchy, default partitions, trackable resources, and minimum, maximum, and default values
-  - Updated resource manager frontend to support the new resource fields when creating or editing resources
-  - New endpoint allowing users to update their email address
-  - Isolated MongoDB test environments using TestContainers for deterministic, self-contained test runs
+  - Added funding and public information fields to the Project data model for better reporting and public visibility
+  - Added database indexes for group job attributes to improve query performance
+  - Added an `is_active` flag to clusters to allow hiding inactive systems from resource allocation
+  - Added a total job count to the Andromeda job endpoint for accurate pagination and display
+  - Improved test coverage across core PERSEUS services
+  - Added system status permissions for L1, L2, and L3 support roles
+  - Added endpoints to fetch and add project publications directly from Andromeda
+  - Implemented a responsive design for the PERSEUS frontend to improve usability on tablets and mobile devices
+  - Enhanced the Person Details view with ORCID, connected identities, and dedicated panels for jobs and resource usage
+  - Added new endpoints to the JobManager and Usage services for retrieving user-specific job and resource data
+  - Added a native database count method to improve performance when querying large collections
+  - Added a backend endpoint to securely validate and update user ORCID identifiers
+  - Added backend endpoints for managing compute project members, handling email invitations, and assigning project coordinator roles
+  - Introduced a templated HTML email system with configurable branding and plain-text fallbacks
+  - Added support for retrieving historical system status entries and updated the existing endpoint to accept optional date ranges
+- _Changed_
+  - Updated the system status API to support a new "maintenance" category and improved historical data retrieval
 - _Fixed_
-  - Resource values are now visible and editable in the project editor when the browser window is narrow
-  - Phase date rows in "All resources & limits" can now be expanded by clicking the row, matching the behavior of compute project entries
-  - Requests authenticated via the `Perseus-Token` header are now correctly resolved for identity-dependent service logic instead of being silently treated as unauthenticated
+  - Fixed datetime parsing in the SystemStatusEntry loader to correctly handle entries stored as datetime objects
+  - Fixed missing Andromeda endpoints in the Swagger UI documentation
+  - Fixed incorrect ordering of compute project phases so they now sort correctly by start date
 
 ### Andromeda
 
 - _Added_
-  - Redesigned "My Projects" page
-  - Email address update in the profile section with validation that rejects common private email providers
-  - Group job display in job tables
+  - Redesigned the system status view to display the last 14 days of history and clearly highlight active and planned maintenance
+  - Added the ability for users to update their ORCID identifier in the profile section
+  - Added a comprehensive user management interface for project managers, including member invitations and role assignments
 - _Changed_
-  - Updated npm dependencies to latest versions and upgraded Node to version 24 LTS
+  - Updated frontend dependencies and upgraded the Node.js runtime to version 24 LTS
+- _Fixed_
+  - Fixed several UI issues in the compute project details view, including graph axis scaling, tooltip formatting, job pagination, and priority color coding
+  - Fixed the email input field on the profile page to use full width
+  - Fixed the Project Manager view to operate at the top-level project scope rather than individual compute projects
+  - Fixed the usage graph filters to only display resources actually used by the selected compute project
 
 ### Gateway
 
-- _Added_
-  - Added the frontend configuration endpoint to the list of allowed endpoints
+- _Removed_
+  - Removed the unused SystemStatus endpoint from the Gateway's allowed routes
 - _Fixed_
-  - Login no longer fails when a user's username is not set
+  - Fixed incorrect forwarding of list parameters in GET requests to ensure all values are passed correctly
 <!-- CHANGELOG END -->
 
 <a href="https://perseus-project.pc2.uni-paderborn.de/changelog/">Click here to view the complete changelog</a>.
