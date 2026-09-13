@@ -32,54 +32,42 @@ Here’s a first look at the software:
 ## What's new?
 
 <!-- CHANGELOG START -->
-Version **0.16.0** includes the following updates:
+Version **27.0.0** includes the following updates:
 
 
 ### PERSEUS
 
 - _Added_
-  - Added funding and public information fields to the Project data model for better reporting and public visibility
-  - Added database indexes for group job attributes to improve query performance
-  - Added an `is_active` flag to clusters to allow hiding inactive systems from resource allocation
-  - Added a total job count to the Andromeda job endpoint for accurate pagination and display
-  - Improved test coverage across core PERSEUS services
-  - Added system status permissions for L1, L2, and L3 support roles
-  - Added endpoints to fetch and add project publications directly from Andromeda
-  - Implemented a responsive design for the PERSEUS frontend to improve usability on tablets and mobile devices
-  - Enhanced the Person Details view with ORCID, connected identities, and dedicated panels for jobs and resource usage
-  - Added new endpoints to the JobManager and Usage services for retrieving user-specific job and resource data
-  - Added a native database count method to improve performance when querying large collections
-  - Added a backend endpoint to securely validate and update user ORCID identifiers
-  - Added backend endpoints for managing compute project members, handling email invitations, and assigning project coordinator roles
-  - Introduced a templated HTML email system with configurable branding and plain-text fallbacks
-  - Added support for retrieving historical system status entries and updated the existing endpoint to accept optional date ranges
+  - Configurable logo and color scheme via theme and logo fields in AndromedaConfiguration
+  - Compute-projects endpoint now includes start date, end date, and granted resources
+  - Dashboard component for the service catalog added to the frontend
+  - Project workflow system
+  - Andromeda sub-service for project overview now returns start, end, is_active, is_followup, and predecessor_id
+  - Bibtex publications: added bibtex as source, automatic population of details, and optional abstract field
+  - Andromeda sub-service for public project database (paginated, filterable endpoints for project overview)
+  - Andromeda Service Catalog
+  - Project editor improvements: inactive clusters removed, default partitions and values
+  - Resource priorities in compute projects now displayed as colored chips
 - _Changed_
-  - Updated the system status API to support a new "maintenance" category and improved historical data retrieval
+  - Publications section in the frontend adapted to the new publications object type
+  - Demo mode enhanced: project count reduced to 25% and missing data added (e.g., users as members)
 - _Fixed_
-  - Fixed datetime parsing in the SystemStatusEntry loader to correctly handle entries stored as datetime objects
-  - Fixed missing Andromeda endpoints in the Swagger UI documentation
-  - Fixed incorrect ordering of compute project phases so they now sort correctly by start date
+  - Andromeda configuration is now automatically created with sensible defaults on startup if missing
+  - Resolved performance issue causing long loading times due to cronjobs blocking worker processes
 
 ### Andromeda
 
 - _Added_
-  - Redesigned the system status view to display the last 14 days of history and clearly highlight active and planned maintenance
-  - Added the ability for users to update their ORCID identifier in the profile section
-  - Added a comprehensive user management interface for project managers, including member invitations and role assignments
+  - Publications in Project Manager
+  - Configurable "My Projects" overview with JOBS and PRIORITES options
+  - New "project-overview" module with public project browsing and detailed views
+  - Andromeda Service Catalog (frontend)
+  - Configurable logo and color scheme
 - _Changed_
-  - Updated frontend dependencies and upgraded the Node.js runtime to version 24 LTS
+  - Proposal module updated to use dedicated funding and public information attributes instead of custom data
 - _Fixed_
-  - Fixed several UI issues in the compute project details view, including graph axis scaling, tooltip formatting, job pagination, and priority color coding
-  - Fixed the email input field on the profile page to use full width
-  - Fixed the Project Manager view to operate at the top-level project scope rather than individual compute projects
-  - Fixed the usage graph filters to only display resources actually used by the selected compute project
-
-### Gateway
-
-- _Removed_
-  - Removed the unused SystemStatus endpoint from the Gateway's allowed routes
-- _Fixed_
-  - Fixed incorrect forwarding of list parameters in GET requests to ensure all values are passed correctly
+  - Support ticket project selection no longer shows non-active or duplicate projects
+  - Compute project resources now display only those from the current phase
 <!-- CHANGELOG END -->
 
 <a href="https://perseus-project.pc2.uni-paderborn.de/changelog/">Click here to view the complete changelog</a>.

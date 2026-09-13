@@ -1,4 +1,4 @@
-interface LicenseInfo {
+export interface LicenseInfo {
   /** Requires attribution */
   attribution: boolean;
   /** Allows commercial use */
@@ -11,5 +11,4 @@ interface LicenseInfo {
  *
  * Key is SPDX license identifier
  */
-declare const licensesData: Record<string, LicenseInfo>;
-export { LicenseInfo, licensesData };
+export declare const licensesData: Record<string, LicenseInfo>;
