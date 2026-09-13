@@ -17,7 +17,6 @@
 
 ## What is PERSEUS?
 
-> PERSEUS is currently in beta. Some features are still experimental and maybe don't work as expected.
 > Feel free to reach out to us and share you experiences and feedback: https://perseus-project.pc2.uni-paderborn.de/contact/
 
 PERSEUS is a compute project management software for scientific HPC centers. It allows you to
@@ -118,6 +117,8 @@ Our prebuilt container images are available on [Docker Hub](https://hub.docker.c
 PERSEUS comes with the following components:
 * [PERSEUS core](https://github.com/pc2-perseus/perseus-core)
 * [PERSEUS frontend](https://github.com/pc2-perseus/perseus-frontend)
+* [Andromeda](https://github.com/pc2-perseus/andromeda)
+* [PERSEUS gateway](https://github.com/pc2-perseus/perseus-gateway)
 * [PERSEUS worker](https://github.com/pc2-perseus/perseus-worker)
 * [Plugins](https://github.com/pc2-perseus/perseus-plugins) (states, services & reports)
 
