@@ -17,6 +17,7 @@
 
 ## What is PERSEUS?
 
+> PERSEUS is currently in beta. Some features are still experimental and maybe don't work as expected.
 > Feel free to reach out to us and share you experiences and feedback: https://perseus-project.pc2.uni-paderborn.de/contact/
 
 PERSEUS is a compute project management software for scientific HPC centers. It allows you to
@@ -31,42 +32,29 @@ Here’s a first look at the software:
 ## What's new?
 
 <!-- CHANGELOG START -->
-Version **27.0.0** includes the following updates:
+Version **27.1.0** includes the following updates:
 
 
 ### PERSEUS
 
 - _Added_
-  - Configurable logo and color scheme via theme and logo fields in AndromedaConfiguration
-  - Compute-projects endpoint now includes start date, end date, and granted resources
-  - Dashboard component for the service catalog added to the frontend
-  - Project workflow system
-  - Andromeda sub-service for project overview now returns start, end, is_active, is_followup, and predecessor_id
-  - Bibtex publications: added bibtex as source, automatic population of details, and optional abstract field
-  - Andromeda sub-service for public project database (paginated, filterable endpoints for project overview)
-  - Andromeda Service Catalog
-  - Project editor improvements: inactive clusters removed, default partitions and values
-  - Resource priorities in compute projects now displayed as colored chips
-- _Changed_
-  - Publications section in the frontend adapted to the new publications object type
-  - Demo mode enhanced: project count reduced to 25% and missing data added (e.g., users as members)
+  - Bulk operations for the `DatabaseManager`
+  - Users with the OWNER role can now unassign any task, not only tasks assigned to themselves
+  - State machine support for the Project Create service
+  - New "Assigned tasks" dashboard widget showing the current user's open tasks
+  - New API endpoint to fetch all assigned tasks for the current user
+  - Search presets in Project Search
+  - Parent/children resource hierarchy in the Project Details view
+  - Configurable display fields for project search results
 - _Fixed_
-  - Andromeda configuration is now automatically created with sensible defaults on startup if missing
-  - Resolved performance issue causing long loading times due to cronjobs blocking worker processes
+  - `PushState.get_tasks()` no longer raises a `TypeError` when called with the `include_form` keyword argument
+  - The login page is now displayed correctly after a session becomes invalid, instead of leaving the re-login modal on screen
+  - An error message is now shown when attempting to assign a task that has already been assigned, and the task list refreshes to reflect the current assignment
 
 ### Andromeda
 
 - _Added_
-  - Publications in Project Manager
-  - Configurable "My Projects" overview with JOBS and PRIORITES options
-  - New "project-overview" module with public project browsing and detailed views
-  - Andromeda Service Catalog (frontend)
-  - Configurable logo and color scheme
-- _Changed_
-  - Proposal module updated to use dedicated funding and public information attributes instead of custom data
-- _Fixed_
-  - Support ticket project selection no longer shows non-active or duplicate projects
-  - Compute project resources now display only those from the current phase
+  - A user-facing message is now displayed when the server returns a 429 (too many requests) error, prompting the user to retry after a short wait
 <!-- CHANGELOG END -->
 
 <a href="https://perseus-project.pc2.uni-paderborn.de/changelog/">Click here to view the complete changelog</a>.
@@ -117,8 +105,6 @@ Our prebuilt container images are available on [Docker Hub](https://hub.docker.c
 PERSEUS comes with the following components:
 * [PERSEUS core](https://github.com/pc2-perseus/perseus-core)
 * [PERSEUS frontend](https://github.com/pc2-perseus/perseus-frontend)
-* [Andromeda](https://github.com/pc2-perseus/andromeda)
-* [PERSEUS gateway](https://github.com/pc2-perseus/perseus-gateway)
 * [PERSEUS worker](https://github.com/pc2-perseus/perseus-worker)
 * [Plugins](https://github.com/pc2-perseus/perseus-plugins) (states, services & reports)
 
